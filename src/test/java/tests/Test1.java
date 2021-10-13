@@ -1,15 +1,13 @@
 package tests;
 
-/*import BaseTest.BaseAbstractChromeTest;*/
-import BaseTest.BaseAbstractTest;
+import BaseTest.BaseAbstractChromeTest;
 import TAEExceptions.TAUnknowBrowserException;
 import org.testng.annotations.Test;
 
-public class Test1 extends BaseAbstractTest {
+public class Test1 extends BaseAbstractChromeTest {
 
 
-    public Test1(String browser)  throws TAUnknowBrowserException {
-        super("edge");
+    public Test1() throws TAUnknowBrowserException {
     }
 
     @Test
