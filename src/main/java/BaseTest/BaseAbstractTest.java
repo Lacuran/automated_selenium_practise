@@ -4,6 +4,7 @@ import Core.TAEDriver;
 import Core.TEABaseObject;
 import Core.TestListener;
 import Entities.WebDriverType;
+import TAEExceptions.TAUnknowBrowserException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.ITestContext;
@@ -18,14 +19,33 @@ public abstract class BaseAbstractTest extends TEABaseObject {
     private static TAEDriver driver;
 
 
-    public BaseAbstractTest(String browser) {
-        if (browser.equalsIgnoreCase(WebDriverType.CHROME.getDriverName())){
-            driver = new TAEDriver(WebDriverType.CHROME);
-        } else if (browser.equalsIgnoreCase(WebDriverType.FIREFOX.getDriverName())){
-            driver = new TAEDriver(WebDriverType.FIREFOX);
-        } else if (browser.equalsIgnoreCase(WebDriverType.EDGE.getDriverName())){
-            driver = new TAEDriver(WebDriverType.EDGE);
+    public BaseAbstractTest(String browser) throws TAUnknowBrowserException {
+
+        switch (browser){
+            case "chrome":
+                driver = new TAEDriver(WebDriverType.CHROME);
+                break;
+            case "firefox":
+                driver = new TAEDriver(WebDriverType.FIREFOX);
+                break;
+            case "edge":
+                driver = new TAEDriver(WebDriverType.EDGE);
+                break;
+            default:
+                throw new TAUnknowBrowserException(String.format("Unknown %s browser", browser));
+
         }
+
+
+        /*if (browser.equalsIgnoreCase(WebDriverType.CHROME.getDriverName())){
+
+        } else if (browser.equalsIgnoreCase(WebDriverType.FIREFOX.getDriverName())){
+
+        } else if (browser.equalsIgnoreCase(WebDriverType.EDGE.getDriverName())){
+
+        } else {
+
+        }*/
     }
 
     public static TAEDriver getDriver() {

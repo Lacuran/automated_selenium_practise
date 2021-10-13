@@ -1,6 +1,6 @@
 package BaseTest;
 
-import Entities.WebDriverType;
+/*import Entities.WebDriverType;
 
 public class BaseAbstractChromeTest extends BaseAbstractTest{
 
@@ -9,4 +9,4 @@ public class BaseAbstractChromeTest extends BaseAbstractTest{
     }
 
 
-}
+}*/
