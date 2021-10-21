@@ -1,8 +1,10 @@
 package Core;
 
 import Entities.WebDriverType;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -25,8 +27,10 @@ public class TAEDriver extends TEABaseObject{
         } else if(driverType == WebDriverType.EDGE){
             runEdgeDriver(false);
         } else {
-            throw new WebDriverException(String.format("Unknown driver type %s. Not configured.", driverType.getDriverName()));
+            throw new WebDriverException(String.format("Unknown driver type %s. Not configured."
+                    , driverType.getDriverName()));
         }
+        driver.manage().window().maximize();
     }
 
     public WebDriver getDriver(){
@@ -35,6 +39,10 @@ public class TAEDriver extends TEABaseObject{
 
     public void quit(){
         driver.quit();
+    }
+
+    public WebElement getElement(By by){
+        return driver.findElement(by);
     }
 
 

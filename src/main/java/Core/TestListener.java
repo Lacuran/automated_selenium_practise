@@ -58,7 +58,7 @@ public class TestListener extends TEABaseObject implements ITestListener {
     private void makeScreenshot(String testName) throws IOException {
         TAEDriver driver = (TAEDriver) iTestContext.getAttribute("driver");
         File screenshot = ((TakesScreenshot) driver.getDriver()).getScreenshotAs(OutputType.FILE);
-        File newFile = new File(System.getProperty("user.dir") + String.format("/target/test-output/screenshots/%s_%s.png", testName, new Date().getTime()));
+        File newFile = new File(System.getProperty("user.dir") + String.format("/%s_%s.png", testName, new Date().getTime()));
         Files.copy(screenshot.toPath(), newFile.toPath());
     }
 }

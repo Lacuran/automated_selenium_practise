@@ -36,16 +36,6 @@ public abstract class BaseAbstractTest extends TEABaseObject {
 
         }
 
-
-        /*if (browser.equalsIgnoreCase(WebDriverType.CHROME.getDriverName())){
-
-        } else if (browser.equalsIgnoreCase(WebDriverType.FIREFOX.getDriverName())){
-
-        } else if (browser.equalsIgnoreCase(WebDriverType.EDGE.getDriverName())){
-
-        } else {
-
-        }*/
     }
 
     public static TAEDriver getDriver() {
